@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block head_title %}
+{{object}}
+{% endblock head_title %}
+
+
+
+{% block content %}
+<div class="p-5 mx-auto">
+    <h2 class="fs-1">{{object}}</h2>
+    <hr>
+    <div class="col-lg-5 mx-auto">
+        <div class="alert alert-{{object.get_temp_alert}} p-5"
+            role="alert">
+            <h1>{{object}}</h1>
+            <hr>
+            <p>{{object.name}}</p>
+            <p>{{object.organization}}</p>
+            <p>{{object.get_address}}</p>
+            <p>
+                <a class="text-dark" href="tel:{{object.phone}}">
+                    {{object.phone}}
+                </a>
+            </p>
+            <p>{{object.email}}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

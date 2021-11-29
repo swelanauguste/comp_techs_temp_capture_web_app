@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+Temperatures -
+{% endblock head_title %}
+
+{% block content %}
+<div class="p-5">
+    <h2 class="fs-1">Temperatures</h2>
+    <hr>
+    <div class="my-3 px-5 text-end ">
+        <a class="text-dark"
+            href="{% url 'temperatures:temperature-create' %}">Add</a>
+    </div>
+    <div class="col-lg-5 mx-auto my-5">
+        {% for object in object_list %}
+        <div class="alert alert-{{object.get_temp_alert}} "
+            role="alert">
+            <a href="{{object.get_absolute_url}}">
+                {{object}}
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
