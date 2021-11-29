@@ -23,7 +23,8 @@
         rel="stylesheet">
 
     <style>
-        html, body {
+        html,
+        body {
             font-family: 'Montserrat', sans-serif;
         }
     </style>
@@ -37,11 +38,11 @@
 </head>
 
 <body>
-{% include 'nav-bar.html' %}
+    {% include 'nav-bar.html' %}
     {% block content %}
 
     {% endblock content %}
-
+    {% include 'footer.html' %}
 
     <!-- Optional JavaScript; choose one of the two! -->
 

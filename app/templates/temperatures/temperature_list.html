@@ -6,20 +6,42 @@ Temperatures -
 
 {% block content %}
 <div class="p-5">
-    <h2 class="fs-1">Temperatures</h2>
-    <hr>
-    <div class="my-3 px-5 text-end ">
+    <h2 class="fs-1 mb-5">Temperatures</h2>
+    <div class="bg-light shadow-lg p-5 rounded-3">
+        <div class="row col-lg-6 mx-auto">
+            <div class="input-group mb-3">
+                <input type="datetime-local"
+                    class="form-control"
+                    placeholder="start"
+                    aria-label="start">
+                <input type="datetime-local"
+                    class="form-control"
+                    placeholder="end"
+                    aria-label="end">
+            </div>
+            <div class="col">
+                <input class="form-control"
+                    type="text"
+                    placeholder="search by, name, NIC, temperature, district, address, phone, email"
+                    name=""
+                    id="">
+
+            </div>
+        </div>
+    </div>
+    <div class="my-3 px-5 text-end">
         <a class="text-dark"
             href="{% url 'temperatures:temperature-create' %}">Add</a>
     </div>
-    <div class="col-lg-5 mx-auto my-5">
+    <div class="col-lg-5 mx-auto my-5 shadow-lg rounded-3 p-5">
         {% for object in object_list %}
-        <div class="alert alert-{{object.get_temp_alert}} "
-            role="alert">
-            <a href="{{object.get_absolute_url}}">
+        <a class="text-decoration-none" href="{{object.get_absolute_url}}">
+            <div class="alert alert-{{object.get_temp_alert}} shadow"
+                role="alert">
                 {{object}}
-            </a>
-        </div>
+            </div>
+        </a>
+
         {% endfor %}
     </div>
 </div>
